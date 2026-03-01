@@ -2,18 +2,21 @@ pipeline {
    agent any
 
    tools {
-     maven 'maven3'
+     maven 'Maven3'
    }
 
-   stages('Get code') {
+ stages{
+   stage('Get code') {
      steps {
       git 'https://github.com/vicky2399/train-reservation.git'
      }
    }
 
-   stages('build') {
+
+   stage('build') {
      steps {
      sh 'mvn clean package'
      }
     }
+ }
 }
